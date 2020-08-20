@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>set gamma | lizenghui&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Open terminal and enter this command:1xrandr -q | grep &amp;quot; connected&amp;quot; output is: LVDS-1-1 connected primary 1366x768+0+0 (normal left inverted right x axis y axis) 309mm x 173mm Copy the value">
+<meta name="keywords" content="ubuntu,color,gamma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="set gamma">
+<meta property="og:url" content="https://lizenghui.github.io/2018/10/31/set-gamma/index.html">
+<meta property="og:site_name" content="lizenghui&#39;s blog">
+<meta property="og:description" content="Open terminal and enter this command:1xrandr -q | grep &amp;quot; connected&amp;quot; output is: LVDS-1-1 connected primary 1366x768+0+0 (normal left inverted right x axis y axis) 309mm x 173mm Copy the value">
+<meta property="og:locale" content="zh_cn">
+<meta property="og:updated_time" content="2020-08-20T03:16:44.561Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="set gamma">
+<meta name="twitter:description" content="Open terminal and enter this command:1xrandr -q | grep &amp;quot; connected&amp;quot; output is: LVDS-1-1 connected primary 1366x768+0+0 (normal left inverted right x axis y axis) 309mm x 173mm Copy the value">
+  
+    <link rel="alternate" href="/atom.xml" title="lizenghui&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lizenghui&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://lizenghui.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-set-gamma" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/31/set-gamma/" class="article-date">
+  <time datetime="2018-10-31T02:45:57.000Z" itemprop="datePublished">2018-10-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ubuntu/">ubuntu</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      set gamma
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Open terminal and enter this command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xrandr -q | grep &quot; connected&quot;</span><br></pre></td></tr></table></figure></p>
+<p>output is: LVDS-1-1 connected primary 1366x768+0+0 (normal left inverted right x axis y axis) 309mm x 173mm</p>
+<p>Copy the value that comes before “connected”. In this case as you can see its “LVDS-1-1” Yours might me something else.</p>
+<p>Now try this command replacing “LVDS-1-1” with the value you got from the previous command.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xrandr --output LVDS-1-1 --gamma 0.8:0.8:0.8</span><br></pre></td></tr></table></figure></p>
+<p>The last three decimal values separated by colon sets the gamma value. The values have a range from 1.0:1.0:1.0 to 0.0:0.0:0.0 Default is 1.0:1.0:1.0</p>
+<h3 id="Note-I-use-xrandr-to-set-brightness-on-my-display-It-will-sometimes-reset-to-the-default-value-sometimes-during-a-program-launch-So-I-use-a-script-with-a-desktop-shortcut-for-convenience"><a href="#Note-I-use-xrandr-to-set-brightness-on-my-display-It-will-sometimes-reset-to-the-default-value-sometimes-during-a-program-launch-So-I-use-a-script-with-a-desktop-shortcut-for-convenience" class="headerlink" title="Note:: I use xrandr to set brightness on my display. It will sometimes reset to the default value, sometimes during a program launch. So I use a script with a desktop shortcut for convenience."></a>Note:: I use xrandr to set brightness on my display. It will sometimes reset to the default value, sometimes during a program launch. So I use a script with a desktop shortcut for convenience.</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://lizenghui.github.io/2018/10/31/set-gamma/" data-id="cke28nu2v00003ficj8vcrlm2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/color/">color</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gamma/">gamma</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/26/ubuntu-server-PEAP认证-NetworkManager-DNS-DHCP/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ubuntu server PEAP认证 NetworkManager DNS DHCP</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ubuntu/">ubuntu</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/color/">color</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dnsmasq/">dnsmasq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gamma/">gamma</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/networkmanager/">networkmanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/color/" style="font-size: 10px;">color</a> <a href="/tags/dnsmasq/" style="font-size: 10px;">dnsmasq</a> <a href="/tags/gamma/" style="font-size: 10px;">gamma</a> <a href="/tags/networkmanager/" style="font-size: 10px;">networkmanager</a> <a href="/tags/ubuntu/" style="font-size: 20px;">ubuntu</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/31/set-gamma/">set gamma</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/26/ubuntu-server-PEAP认证-NetworkManager-DNS-DHCP/">ubuntu server PEAP认证 NetworkManager DNS DHCP</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 lizenghui<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
