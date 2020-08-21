@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: Daily
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -81,3 +81,9 @@ deploy:
   type: git
   repo: git@github.com:lizenghui/lizenghui.github.io.git
   branch: master 
+widget:
+  title: 关于本站
+  content: <p>none</p>
+footer: Powered by <a href="https://hexo.io/">Hexo</a> with Theme Daily
+social:
+  github: https://github.com/lizenghui
