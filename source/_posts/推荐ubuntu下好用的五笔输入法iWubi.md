@@ -18,6 +18,8 @@ tags:
 
 ### 原作者项目地址：<https://github.com/Honghe/iwubi>
 
+![](/images/iwubi.gif)
+
 python写的，安装的话没有deb安装包，不过安装超级简单，clone后：
 
 
@@ -26,5 +28,7 @@ python写的，安装的话没有deb安装包，不过安装超级简单，clone
 
 目前没有设置选项，提示候选词为5个，采用是竖版提示。
 我个人习惯多一点候选词和横版，所以fork了作者的项目，自己改了一下
+
+![](/images/ch.png)
 
 ### 10个候选词＋横版提示，项目地址：<https://github.com/lizenghui/iwubi>
