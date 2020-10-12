@@ -16,7 +16,7 @@
 
   <!--Open Graph Title-->
   
-      <meta property="og:title" content="终于找到ubuntu下好用的五笔输入法iWubi,基于ibus">
+      <meta property="og:title" content="史上最优雅的透明网关Gateway（旁路由）教程 for ubuntu">
   
   <!--Open Graph Description-->
   
@@ -33,7 +33,7 @@
 
   <!-- Title -->
   
-  <title>终于找到ubuntu下好用的五笔输入法iWubi,基于ibus - lizenghui&#39;s blog</title>
+  <title>史上最优雅的透明网关Gateway（旁路由）教程 for ubuntu - lizenghui&#39;s blog</title>
 
 
   <link rel="shortcut icon" href="https://hexo.io/icon/favicon-96x96.png">
@@ -113,11 +113,11 @@
         <!-- Title date & tags -->
         <div class="post-header">
           <h1 class="entry-title">
-            终于找到ubuntu下好用的五笔输入法iWubi,基于ibus
+            史上最优雅的透明网关Gateway（旁路由）教程 for ubuntu
             
           </h1>
           <p class="posted-on">
-          2020-08-20
+          2020-10-12
           </p>
           <div class="tags-links">
             
@@ -130,20 +130,40 @@
                   linux
                 </a>
               
-                <a href="/tags/wubi/" rel="tag">
-                  wubi
+                <a href="/tags/gateway/" rel="tag">
+                  gateway
                 </a>
               
-                <a href="/tags/ibus/" rel="tag">
-                  ibus
+                <a href="/tags/网关/" rel="tag">
+                  网关
                 </a>
               
-                <a href="/tags/五笔/" rel="tag">
-                  五笔
+                <a href="/tags/透明网关/" rel="tag">
+                  透明网关
                 </a>
               
-                <a href="/tags/iWubi/" rel="tag">
-                  iWubi
+                <a href="/tags/透明代理/" rel="tag">
+                  透明代理
+                </a>
+              
+                <a href="/tags/旁路由/" rel="tag">
+                  旁路由
+                </a>
+              
+                <a href="/tags/tun2socks/" rel="tag">
+                  tun2socks
+                </a>
+              
+                <a href="/tags/dos2socks/" rel="tag">
+                  dos2socks
+                </a>
+              
+                <a href="/tags/clash/" rel="tag">
+                  clash
+                </a>
+              
+                <a href="/tags/iptables/" rel="tag">
+                  iptables
                 </a>
               
             
@@ -151,13 +171,16 @@
         </div>
         <!-- Post Main Content -->
         <div class="entry-content has_line_number">
-          <h1 id="ubuntu下好用的五笔输入法iWubi-基于ibus"><a href="#ubuntu下好用的五笔输入法iWubi-基于ibus" class="headerlink" title="ubuntu下好用的五笔输入法iWubi,基于ibus"></a>ubuntu下好用的五笔输入法iWubi,基于ibus</h1><p>我在ubuntu上用过最好的五笔。<br>自从chrome突然有一个版本升级后，ubuntu自带的五笔[left shift]键在chrome下就不能切换中/英了，十分不习惯。<br>最近网上也有好多人在说这个，但一直没有好的解决方案，突然发现了这个，试用后太爽了！</p>
-<h3 id="原作者项目地址：https-github-com-Honghe-iwubi"><a href="#原作者项目地址：https-github-com-Honghe-iwubi" class="headerlink" title="原作者项目地址：https://github.com/Honghe/iwubi"></a>原作者项目地址：<a href="https://github.com/Honghe/iwubi" target="_blank" rel="noopener">https://github.com/Honghe/iwubi</a></h3><p><img src="/images/iwubi.gif" alt=""></p>
-<p>python写的，安装的话没有deb安装包，不过安装超级简单，clone后：</p>
-<p><code>sudo make install</code></p>
-<p>目前没有设置选项，提示候选词为5个，采用是竖版提示。<br>我个人习惯多一点候选词和横版，所以fork了作者的项目，自己改了一下</p>
-<p><img src="/images/ch.png" alt=""></p>
-<h3 id="10个候选词＋横版提示，项目地址：https-github-com-lizenghui-iwubi"><a href="#10个候选词＋横版提示，项目地址：https-github-com-lizenghui-iwubi" class="headerlink" title="10个候选词＋横版提示，项目地址：https://github.com/lizenghui/iwubi"></a>10个候选词＋横版提示，项目地址：<a href="https://github.com/lizenghui/iwubi" target="_blank" rel="noopener">https://github.com/lizenghui/iwubi</a></h3>
+          <h2 id="史上最优雅的透明网关（旁路由）教程"><a href="#史上最优雅的透明网关（旁路由）教程" class="headerlink" title="史上最优雅的透明网关（旁路由）教程"></a>史上最优雅的透明网关（旁路由）教程</h2><p><strong>方案一</strong>基于ubuntu20.04，18.04及以下版本貌似不可行；<strong>方案二</strong>理论上可以适用目前主流的linux发行版；<br>只适用ipv4，ipv6一直没搞明白，想讨论的可以在教程下方给我email。</p>
+<hr>
+<p>[toc]</p>
+<h3 id="一、开启ip-forward"><a href="#一、开启ip-forward" class="headerlink" title="一、开启ip_forward"></a>一、开启ip_forward</h3><p>万年不变：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<p>　　<code>net.ipv4.ip_forward=1</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl -p</span><br></pre></td></tr></table></figure></p>
+<h3 id="二、下载，编译dns2socks"><a href="#二、下载，编译dns2socks" class="headerlink" title="二、下载，编译dns2socks"></a>二、下载，编译dns2socks</h3><p><a href="https://sourceforge.net/projects/dns2socks/" target="_blank" rel="noopener">https://sourceforge.net/projects/dns2socks/</a></p>
+<h3 id="二、安装dnsmasq"><a href="#二、安装dnsmasq" class="headerlink" title="二、安装dnsmasq"></a>二、安装dnsmasq</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install dnsmasq</span><br></pre></td></tr></table></figure>
+<h3 id="三、停用systemd-resolved，启用dnsmasq"><a href="#三、停用systemd-resolved，启用dnsmasq" class="headerlink" title="三、停用systemd-resolved，启用dnsmasq"></a>三、停用systemd-resolved，启用dnsmasq</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">disable</span> systemd-resolved.service</span><br><span class="line">sudo systemctl stop systemd-resolved.service </span><br><span class="line"></span><br><span class="line">sudo systemctl start dnsmasq.service</span><br></pre></td></tr></table></figure>
+
         </div>
       </article>
     </div>
@@ -175,13 +198,9 @@
     <!-- Pre or Next -->
     <div class="nav-links">
       
-        <div class="nav-previous">
-          <a href="/2020/10/12/史上最优雅的透明网关Gateway（旁路由）教程-for-ubuntu/" rel="prev"><span class="meta-arraw meta-arraw-left"></span> Older Posts</a>
-        </div>
-      
       
         <div class="nav-next">
-          <a href="/2018/10/31/set-gamma/" rel="prev">Newer Posts <span class="meta-arraw meta-arraw-right"></span></a>
+          <a href="/2020/08/20/推荐ubuntu下好用的五笔输入法iWubi/" rel="prev">Newer Posts <span class="meta-arraw meta-arraw-right"></span></a>
         </div>
       
     </div>
